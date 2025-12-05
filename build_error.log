@@ -1,0 +1,29 @@
+
+> developer-portfolio@0.0.0 build
+> vite build
+
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 2112 modules transformed.
+[31mx[39m Build failed in 10.10s
+[31merror during build:
+[31msrc/components/TechStack.jsx (3:9): "StackIcon" is not exported by "node_modules/tech-stack-icons/dist/index.js", imported by "src/components/TechStack.jsx".[31m
+file: [36mD:/Code Galary/Portfolio/vibe port/src/components/TechStack.jsx:3:9[31m
+[33m
+1: import { useState, useMemo } from "react";
+2: import { motion, AnimatePresence } from "framer-motion";
+3: import { StackIcon } from "tech-stack-icons";
+            ^
+4: 
+5: const TECHS = [
+[31m
+    at getRollupError (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at error (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
+    at Module.error (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/node-entry.js:16956:16)
+    at Module.traceVariable (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/node-entry.js:17412:29)
+    at ModuleScope.findVariable (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/node-entry.js:15076:39)
+    at FunctionScope.findVariable (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/node-entry.js:5649:38)
+    at FunctionBodyScope.findVariable (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/node-entry.js:5649:38)
+    at ReturnValueScope.findVariable (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/node-entry.js:5649:38)
+    at FunctionBodyScope.findVariable (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/node-entry.js:5649:38)
+    at Identifier.bind (file:///D:/Code%20Galary/Portfolio/vibe%20port/node_modules/rollup/dist/es/shared/node-entry.js:5423:40)[39m
