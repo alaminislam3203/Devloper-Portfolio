@@ -1,12 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-
-  // Build optimization
   build: {
-    chunkSizeWarningLimit: 2000, // Increase chunk limit to 2MB
+    outDir: 'dist', // build folder (Cloudflare Pages default)
+    chunkSizeWarningLimit: 2000, // warning limit 2 MB-এ বাড়ানো
   },
 });
