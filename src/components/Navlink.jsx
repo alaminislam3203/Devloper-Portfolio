@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import {
   FaHome,
   FaUser,
@@ -30,10 +29,10 @@ export default function Navlink() {
               key={link.id}
               href={link.href}
               onClick={() => setActiveLink(link.href)}
-              className={`flex flex-col items-center p-1 transition-all duration-300 ease-in-out text-gray-700 dark:text-gray-300 ${
+              className={`flex flex-col items-center p-1 transition-colors duration-300 ease-in-out ${
                 isActive
                   ? 'text-blue-600 dark:text-blue-400'
-                  : 'hover:text-blue-600'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
               }`}
             >
               <span
@@ -46,7 +45,7 @@ export default function Navlink() {
                 {link.icon}
               </span>
               <span
-                className={`text-xs mt-1 ${
+                className={`text-xs mt-1 transition-colors duration-300 ${
                   isActive
                     ? 'font-semibold text-blue-600 dark:text-blue-400'
                     : ''

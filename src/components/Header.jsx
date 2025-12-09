@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 
-// React Icons import
+// React Icons
 import {
   FaHome,
   FaUser,
@@ -31,30 +31,30 @@ const Header = () => {
         {/* Logo Section */}
         <a
           href="/"
-          className="flex items-center gap-2 text-gray-900 dark:text-white"
+          className="flex items-center gap-3 text-gray-900 dark:text-white"
         >
           <img
-            src="./src/assets/alamin_profile.jpg"
+            src="https://i.ibb.co.com/tPLBqHkN/alamin-profile.jpg"
             alt="AL-AMIN ISLAM Logo"
-            className="h-10 w-10 rounded-full object-cover"
+            className="h-10 w-10 rounded-full object-cover shadow-sm"
           />
-          <div className="flex flex-col leading-none">
-            <span className="font-bold text-lg md:text-xl">
-              {' '}
-              <>/</>AL-AMIN
+
+          <div className="flex flex-col leading-tight">
+            <span className="font-bold text-lg md:text-xl tracking-wide">
+              /AL-AMIN
             </span>
-            <span className="text-xs text-center text-gray-600 dark:text-gray-300 font-normal mt-0">
+            <span className="text-xs text-gray-600 dark:text-gray-300 font-normal">
               Full Stack Developer
             </span>
           </div>
         </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center space-x-6 text-gray-700 dark:text-gray-300 font-medium">
+        <ul className="hidden md:flex items-center space-x-8 text-gray-700 dark:text-gray-300 font-medium">
           {navLinks.map(link => (
             <li
               key={link.name}
-              className="flex items-center gap-1 hover:text-blue-600 transition"
+              className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer"
             >
               {link.icon}
               <a href={link.href}>{link.name}</a>
@@ -62,17 +62,17 @@ const Header = () => {
           ))}
         </ul>
 
-        {/* Theme Toggle + Download CV Button */}
+        {/* Theme Toggle + CV Button */}
         <div className="flex items-center space-x-4">
           <ThemeToggle />
 
           <a
             href="/Alamin Islam_Resume.pdf"
             download
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300 flex items-center gap-2 text-sm"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all duration-300 flex items-center gap-2 text-sm active:scale-[0.97]"
           >
             <FaDownload />
-            <span className="hidden sm:inline">Download CV</span>{' '}
+            <span className="hidden sm:inline">Download CV</span>
           </a>
         </div>
       </div>

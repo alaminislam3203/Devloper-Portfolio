@@ -67,7 +67,7 @@ const Clients = () => {
   return (
     <section
       id="clients"
-      className="py-16 sm:py-20 bg-gray-50 dark:bg-gradient-to-br dark:from-[#0D1528] dark:to-[#0A101C] text-gray-800 dark:text-white overflow-hidden"
+      className="py-16 sm:py-20 bg-white dark:bg-[#0B1120] text-gray-800 dark:text-white overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

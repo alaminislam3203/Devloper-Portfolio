@@ -14,8 +14,7 @@ import { FiMail } from 'react-icons/fi';
 const Footer = () => {
   const quickLinks = [
     { name: 'Home', href: '/' },
-    // { name: 'Projects', href: '#projects' },
-    { name: 'Blogs', href: 'blogs' },
+    { name: 'Blogs', href: '/blogs' },
     { name: 'Clients', href: '#clients' },
   ];
 
@@ -52,7 +51,7 @@ const Footer = () => {
     },
     {
       icon: FaTiktok,
-      href: 'https://www.tiktok.com/@alamin_chowdhury_102?is_from_webapp=1&sender_device=pc',
+      href: 'https://www.tiktok.com/@alamin_chowdhury_102',
       label: 'TikTok',
       color: 'hover:text-[#E1306C] dark:hover:text-[#E1306C]',
     },
@@ -71,35 +70,36 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white dark:bg-[#0B1120] border-t border-gray-100 dark:border-gray-800 py-20 md:py-5 px-4">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* --- Main Content Area --- */}
+    <footer className="bg-white dark:bg-[#0B1120] border-t border-gray-100 dark:border-gray-800 py-16 px-4">
+      <div className="container mx-auto max-w-7xl">
+        {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-200 dark:border-gray-700 pb-10 mb-8">
-          <a href="/" className="md:col-span-1">
+          {/* Logo & Info */}
+          <a href="/" className="flex flex-col md:col-span-1 gap-3">
             <img
-              src="./src/assets/alamin_profile.jpg"
+              src="https://i.ibb.co.com/tPLBqHkN/alamin-profile.jpg"
               alt="AL-AMIN ISLAM Logo"
               className="h-10 w-10 rounded-full object-cover"
             />
-            <div className="flex flex-col leading-none">
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 mb-3">
+            <div>
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
                 AL-AMIN
               </span>
-              <span className="text-sm text-gray-600 dark:text-gray-400 max-w-xs">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 max-w-xs">
                 Dedicated Full Stack Web Developer specializing in clean, fast,
                 and user-centric digital solutions.
-              </span>
+              </p>
             </div>
           </a>
 
-          {/* Column 2: Quick Links */}
-          <div className="md:col-span-1">
-            <h5 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 md:text-center">
+          {/* Quick Links */}
+          <div className="md:col-span-1 flex flex-col items-center">
+            <h5 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
               Quick Links
             </h5>
-            <ul className="md:flex md:justify-center space-y-2 md:space-y-0 md:space-x-6">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
+            <ul className="flex flex-col md:flex-row items-center md:space-x-6 space-y-2 md:space-y-0">
+              {quickLinks.map((link, idx) => (
+                <li key={idx}>
                   <a
                     href={link.href}
                     className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors text-base"
@@ -111,19 +111,19 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Social Media */}
-          <div className="md:col-span-1 md:text-center">
-            <h5 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 text-center md:text-center">
+          {/* Social Links */}
+          <div className="md:col-span-1 flex flex-col items-center">
+            <h5 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
               Connect With Me
             </h5>
-            <div className="flex md:justify-center space-x-5">
-              {socialLinks.map((link, index) => (
+            <div className="flex flex-wrap justify-center gap-5">
+              {socialLinks.map((link, idx) => (
                 <a
-                  key={index}
+                  key={idx}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-gray-500 transition-colors transform hover:scale-110 ${link.color}`}
+                  className={`text-gray-500 transition-transform transform hover:scale-110 ${link.color}`}
                   aria-label={link.label}
                 >
                   <link.icon className="text-2xl" />
@@ -133,17 +133,15 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* --- Copyright & Bottom Line --- */}
-        <div className="flex flex-col md:flex-col justify-between items-center">
-          <div className="flex items-center space-x-2 mb-2 md:mb-0">
-            <FaRegCopyright className="text-gray-500 dark:text-gray-400 text-sm" />
-            <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">
+        {/* Bottom Line */}
+        <div className="flex flex-col items-center text-center text-gray-500 dark:text-gray-400 text-sm space-y-1">
+          <div className="flex items-center gap-1">
+            <FaRegCopyright />
+            <span>
               {new Date().getFullYear()} Alamin Islam. All rights reserved.
-            </p>
+            </span>
           </div>
-          <div className="text-xs text-gray-500 dark:text-gray-400">
-            Code Hard, Grow Harder
-          </div>
+          <div>Code Hard, Grow Harder</div>
         </div>
       </div>
     </footer>

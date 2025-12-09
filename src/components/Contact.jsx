@@ -7,19 +7,8 @@ import {
   FaPaperPlane,
   FaCheckCircle,
   FaTimesCircle,
-  FaLink,
 } from 'react-icons/fa';
 import { PhoneCall } from 'lucide-react';
-
-const handleEmailClick = () => {
-  window.location.href = 'mailto:alaminislam3203@gmail.com';
-};
-
-const handleLocationClick = () => {
-  const mapUrl =
-    'https://www.google.com/maps/search/?api=1&query=Rangpur%2C+Bangladesh';
-  window.open(mapUrl, '_blank');
-};
 
 const Contact = () => {
   const form = useRef();
@@ -30,12 +19,8 @@ const Contact = () => {
   });
   const [status, setStatus] = useState('');
 
-  const handleChange = e => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
-  };
+  const handleChange = e =>
+    setFormData({ ...formData, [e.target.id]: e.target.value });
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -44,13 +29,8 @@ const Contact = () => {
     const SERVICE_ID = 'service_g9rtati';
     const TEMPLATE_ID = 'template_4jlzrrf';
     const PUBLIC_KEY = 'mSW-bsIk9JXtWWXOy';
-    // ------------------------------------
 
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      message: formData.message,
-    };
+    const templateParams = { ...formData };
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY).then(
       result => {
@@ -60,20 +40,28 @@ const Contact = () => {
         setTimeout(() => setStatus(''), 5000);
       },
       error => {
-        console.log('FAILED...', error);
-        setStatus('error');
         console.error('EmailJS Error:', error);
+        setStatus('error');
         setTimeout(() => setStatus(''), 7000);
       }
     );
   };
 
+  const handleEmailClick = () =>
+    (window.location.href = 'mailto:alaminislam3203@gmail.com');
+  const handleLocationClick = () =>
+    window.open(
+      'https://www.google.com/maps/search/?api=1&query=Rangpur%2C+Bangladesh',
+      '_blank'
+    );
+
   return (
     <section
       id="contact"
-      className="py-16 sm:py-24 bg-gray-50 dark:bg-[#0B1120] text-gray-800 dark:text-white"
+      className="py-16 sm:py-24 bg-white dark:bg-[#0B1120] text-gray-800 dark:text-white"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,7 +79,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Column - Contact Info */}
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -107,11 +95,11 @@ const Contact = () => {
             </p>
 
             <div className="space-y-6 pt-4">
-              {/* Email Card - Clicking opens email client */}
+              {/* Email */}
               <motion.div
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: '0 10px 20px rgba(59, 130, 246, 0.2)',
+                  boxShadow: '0 10px 20px rgba(59,130,246,0.2)',
                 }}
                 className="flex items-center space-x-4 p-5 rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 cursor-pointer"
                 onClick={handleEmailClick}
@@ -128,11 +116,12 @@ const Contact = () => {
                   </p>
                 </div>
               </motion.div>
-              {/* Call Now Card - Clicking opens call client */}
+
+              {/* Call */}
               <motion.div
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: '0 10px 20px rgba(52, 211, 153, 0.2)',
+                  boxShadow: '0 10px 20px rgba(52,211,153,0.2)',
                 }}
                 className="flex items-center space-x-4 p-5 rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300"
               >
@@ -143,7 +132,6 @@ const Contact = () => {
                   <p className="text-sm text-gray-500 dark:text-gray-400 font-semibold">
                     Call Now
                   </p>
-
                   <a
                     href="tel:+8801313334279"
                     className="font-bold text-lg hover:text-green-500 transition-colors hover:underline"
@@ -153,11 +141,11 @@ const Contact = () => {
                 </div>
               </motion.div>
 
-              {/* Location Card - Clicking opens map */}
+              {/* Location */}
               <motion.div
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: '0 10px 20px rgba(168, 85, 247, 0.2)',
+                  boxShadow: '0 10px 20px rgba(168,85,247,0.2)',
                 }}
                 className="flex items-center space-x-4 p-5 rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 cursor-pointer"
                 onClick={handleLocationClick}
@@ -177,7 +165,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Right Column - Contact Form (No changes needed here) */}
+          {/* Contact Form */}
           <motion.form
             ref={form}
             initial={{ opacity: 0, x: 50 }}
@@ -188,78 +176,51 @@ const Contact = () => {
             onSubmit={handleSubmit}
           >
             <h3 className="text-2xl font-bold mb-4">Send a Message</h3>
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Name
-              </label>
-              <motion.input
-                whileFocus={{
-                  scale: 1.01,
-                  boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.5)',
-                }}
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 outline-none transition-all focus:border-blue-500"
-                placeholder="Your Name"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Email
-              </label>
-              <motion.input
-                whileFocus={{
-                  scale: 1.01,
-                  boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.5)',
-                }}
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 outline-none transition-all focus:border-blue-500"
-                placeholder="Enter your email address"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Message
-              </label>
-              <motion.textarea
-                whileFocus={{
-                  scale: 1.01,
-                  boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.5)',
-                }}
-                id="message"
-                name="message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 outline-none transition-all resize-none focus:border-blue-500"
-                placeholder="Your message..."
-              ></motion.textarea>
-            </div>
 
-            {/* Submit Button */}
+            {['name', 'email', 'message'].map((field, idx) => (
+              <div key={idx}>
+                <label
+                  htmlFor={field}
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 capitalize"
+                >
+                  {field}
+                </label>
+                {field !== 'message' ? (
+                  <motion.input
+                    whileFocus={{
+                      scale: 1.01,
+                      boxShadow: '0 0 0 3px rgba(59,130,246,0.5)',
+                    }}
+                    type={field === 'email' ? 'email' : 'text'}
+                    id={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 outline-none transition-all focus:border-blue-500"
+                    placeholder={`Your ${field}`}
+                  />
+                ) : (
+                  <motion.textarea
+                    whileFocus={{
+                      scale: 1.01,
+                      boxShadow: '0 0 0 3px rgba(59,130,246,0.5)',
+                    }}
+                    id={field}
+                    rows="5"
+                    value={formData[field]}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 outline-none transition-all resize-none focus:border-blue-500"
+                    placeholder="Your message..."
+                  />
+                )}
+              </div>
+            ))}
+
             <motion.button
               whileHover={{
                 scale: 1.02,
-                boxShadow: '0 5px 15px rgba(59, 130, 246, 0.5)',
+                boxShadow: '0 5px 15px rgba(59,130,246,0.5)',
               }}
               whileTap={{ scale: 0.98 }}
               type="submit"
@@ -281,7 +242,6 @@ const Contact = () => {
               )}
             </motion.button>
 
-            {/* Status Messages */}
             {status === 'success' && (
               <p className="text-green-500 text-center font-semibold flex items-center justify-center gap-2 mt-4">
                 <FaCheckCircle /> Message sent successfully!

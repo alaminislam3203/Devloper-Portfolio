@@ -5,7 +5,6 @@ import {
   FaCode,
   FaProjectDiagram,
   FaLayerGroup,
-  FaUsers,
   FaServer,
   FaLaptopCode,
   FaGraduationCap,
@@ -162,7 +161,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-16 sm:py-24 bg-gray-50 dark:bg-[#0B1120] text-gray-800 dark:text-white"
+      className="py-16 sm:py-24 bg-white dark:bg-[#0B1120] text-gray-800 dark:text-white"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -221,12 +220,6 @@ const About = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 15px 30px rgba(59, 130, 246, 0.2)',
-                y: -5,
-                transition: { duration: 0.3 },
-              }}
               className="relative bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden group"
             >
               {/* Background Blur Decoration */}

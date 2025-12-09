@@ -21,10 +21,10 @@ const TECHS = [
   { name: 'GitHub', icon: 'github', cat: 'tools' },
   { name: 'Postman', icon: 'postman', cat: 'tools' },
   { name: 'Figma', icon: 'figma', cat: 'tools' },
-  { name: 'Vscode', icon: 'vscode', cat: 'tools' },
+  { name: 'VSCode', icon: 'vscode', cat: 'tools' },
 ];
 
-const categories = [
+const CATEGORIES = [
   { id: 'all', label: 'All' },
   { id: 'frontend', label: 'Frontend' },
   { id: 'backend', label: 'Backend' },
@@ -41,7 +41,7 @@ export default function TechStack() {
   }, [active]);
 
   return (
-    <section id="skills" className="py-28 bg-slate-100 dark:bg-[#1e293b]">
+    <section id="techstack" className="py-28 bg-white dark:bg-[#0B1120]">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-6">
           TECHNOLOGY STACK
@@ -52,16 +52,15 @@ export default function TechStack() {
 
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-14">
-          {categories.map(c => (
+          {CATEGORIES.map(c => (
             <button
               key={c.id}
               onClick={() => setActive(c.id)}
-              className={`px-6 py-2.5 rounded-full font-semibold transition-all text-sm
-                ${
-                  active === c.id
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xl'
-                    : 'bg-white/70 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-white/20'
-                }`}
+              className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all ${
+                active === c.id
+                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xl'
+                  : 'bg-white/70 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-white/20'
+              }`}
             >
               {c.label}
             </button>
@@ -78,14 +77,10 @@ export default function TechStack() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                whileHover={{ scale: 1.12, rotateX: 10, rotateY: -10 }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 200,
-                  damping: 15,
-                }}
-                className="group relative flex items-center justify-center h-32 w-32 mx-auto
-                           rounded-3xl bg-white dark:bg-[#2d3748] 
+                whileHover={{ scale: 1.12, rotateX: 8, rotateY: -8 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                className="group relative flex flex-col items-center justify-center h-32 w-32 mx-auto
+                           rounded-3xl bg-white dark:bg-blue-500/20
                            border border-gray-200 dark:border-white/10 
                            hover:border-blue-500 shadow-lg hover:shadow-[0_0_35px_#3b82f6]/40 
                            transition-all"
@@ -93,7 +88,7 @@ export default function TechStack() {
                 {/* Hover Glow */}
                 <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition bg-blue-500/20 blur-2xl"></div>
 
-                {/* Bigger Icons */}
+                {/* Icon */}
                 <StackIcon
                   name={tech.icon}
                   className="relative z-10 w-16 h-16"

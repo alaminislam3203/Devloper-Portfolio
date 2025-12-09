@@ -1,80 +1,59 @@
+'use client';
+
 import React from 'react';
-import { motion } from 'framer-motion';
+import {
+  FaUsers,
+  FaLightbulb,
+  FaClock,
+  FaTasks,
+  FaBrain,
+  FaPencilAlt,
+  FaSyncAlt,
+  FaCommentDots,
+  FaBook,
+} from 'react-icons/fa';
 
-const Skills = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+const skills = [
+  { name: 'Communication', icon: <FaCommentDots /> },
+  { name: 'Teamwork', icon: <FaUsers /> },
+  { name: 'Problem Solving', icon: <FaBrain /> },
+  { name: 'Time Management', icon: <FaClock /> },
+  { name: 'Critical Thinking', icon: <FaLightbulb /> },
+  { name: 'Adaptability', icon: <FaSyncAlt /> },
+  { name: 'Creativity', icon: <FaPencilAlt /> },
+  { name: 'Multitasking', icon: <FaTasks /> },
+  { name: 'Client Communication', icon: <FaCommentDots /> },
+  { name: 'Active Learning', icon: <FaBook /> },
+];
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
+export default function Skills() {
   return (
     <section
       id="skills"
-      className="font-display bg-background-light dark:bg-background-dark"
+      className="py-24 bg-white dark:bg-[#0B1120] text-gray-900"
     >
-      <section className="py-16 sm:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-6"
-          >
-            {[
-              'JavaScript',
-              'React',
-              'Next.js',
-              'GitHub',
-              'Tailwind CSS',
-              'C++',
-              'Java',
-              'Vercel',
-              'Firebase',
-              'Git',
-              'HTML5',
-              'CSS3',
-            ].map((skill, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
-                title={skill}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 100 100"
-                  className="h-10 w-10 sm:h-12 sm:w-12"
-                >
-                  <path
-                    fill="#06B6D4"
-                    d="M50 20q-20 0-25 19.994 7.5-9.997 17.5-7.498c3.804.95 6.522 3.71 9.532 6.764 4.902 4.974 10.576 10.731 22.969 10.731q20 0 24.999-19.995-7.5 9.997-17.5 7.5c-3.803-.951-6.521-3.71-9.531-6.765C68.067 25.758 62.392 20 50 20M25 49.991q-20 0-25 19.995 7.5-9.998 17.5-7.498c3.803.952 6.522 3.71 9.532 6.763C31.933 74.225 37.608 79.984 50 79.984q20 0 25-19.995-7.5 9.997-17.5 7.498c-3.803-.95-6.522-3.71-9.532-6.763C43.066 55.75 37.393 49.991 25 49.991"
-                  />
-                </svg>
-              </motion.div>
-            ))}
-          </motion.div>
+      <div className="max-w-6xl mx-auto px-4 ">
+        <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+          Soft Skills
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center p-6 bg-gray-100 dark:bg-blue-500/20 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 group relative"
+            >
+              <div className="text-5xl mb-4 text-indigo-500 group-hover:text-pink-500 transition-colors duration-300">
+                {skill.icon}
+              </div>
+              <div className="text-center text-gray-900 font-semibold text-lg dark:text-white">
+                {skill.name}
+              </div>
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-2xl  blur-2xl group-hover:opacity-50 transition-opacity duration-300"></div>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
     </section>
   );
-};
-
-export default Skills;
+}
