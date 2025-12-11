@@ -106,7 +106,7 @@ const Clients = () => {
                   key={index}
                   className="flex-shrink-0 w-1/4 max-w-[150px] h-20 flex items-center justify-center p-4 
                                                transition-all duration-300 cursor-pointer 
-                                               hover:scale-[1.05]" // Subtle hover scale remains
+                                               hover:scale-[1.05]"
                 >
                   <img
                     src={logo.src}

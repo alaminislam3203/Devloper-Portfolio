@@ -5,16 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0ea5e9', // A vibrant blue
-        'background-light': '#f0f9ff', // Very light blue
-        'background-dark': '#0c1425', // Dark navy blue
+        primary: '#0ea5e9',
+        'background-light': '#f0f9ff',
+        'background-dark': '#0c1425',
       },
       fontFamily: {
         display: ['Poppins', 'sans-serif'],
         signature: ['Dancing Script', 'cursive'],
       },
       borderRadius: {
-        DEFAULT: '0.5rem', // 8px
+        DEFAULT: '0.5rem',
       },
     },
   },
