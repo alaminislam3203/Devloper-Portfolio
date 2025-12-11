@@ -12,7 +12,6 @@ import {
 } from 'react-icons/fa';
 import { Link2Icon } from 'lucide-react';
 
-// --- DUMMY PROJECT DATA (Your provided data) ---
 const projects = [
   {
     id: 'warmpaws',
@@ -22,13 +21,13 @@ const projects = [
     longDescription:
       'WarmPaws is a comprehensive MERN stack application focusing on full-stack functionality, including secure Firebase authentication, database design with MongoDB, and responsive design with Tailwind CSS. It highlights robust features like booking services and user profile management.',
     tech: [
-      'React.js',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'Firebase',
-      'Javascript',
+      'HTML',
+      'CSS',
       'Tailwind CSS',
+      'JavaScript',
+      'React.js',
+      'Vite',
+      'Firebase',
     ],
     embedId: '5ybftl',
     link: 'https://warmpaws-pet-care-in-win-a8d38.web.app/',
@@ -42,7 +41,18 @@ const projects = [
       'EcoTrack is an environmental awareness and sustainability platform that encourages users to participate in eco-friendly challenges, track their progress, and contribute to a greener planet.',
     longDescription:
       'EcoTrack is an environmental platform built with the intention of community-driven sustainable challenges. It showcases modern frontend technologies like React and Vite, focusing on performance and user engagement through interactive elements.',
-    tech: ['JavaScript', 'React.js', 'Vite', 'Tailwind CSS', 'Firebase'],
+    tech: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React.js',
+      'Vite',
+      'Tailwind CSS',
+      'Firebase',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+    ],
     embedId: 'smccnm',
     link: 'https://eco-track-client.netlify.app/',
     github: 'https://github.com/alaminislam3203/EcoTrack-Client-Web.git',
@@ -55,7 +65,15 @@ const projects = [
       'Hero Apps is a modern SaaS landing page built with React and Tailwind CSS, designed to showcase a software-as-a-service product with a clean, responsive interface.',
     longDescription:
       'Hero Apps is a sleek and modern SaaS landing page that highlights key features, benefits, and user testimonials. It uses React for component-based architecture and Tailwind CSS for responsive styling.',
-    tech: ['JavaScript', 'React.js', 'Tailwind CSS', 'Vite', 'Netlify'],
+    tech: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React.js',
+      'Tailwind CSS',
+      'Vite',
+      'Netlify',
+    ],
     embedId: '7g7yow',
     link: 'https://hero-apps-web.netlify.app/',
     github: 'https://github.com/alaminislam3203/Hero-Apps.git',
@@ -68,6 +86,8 @@ const projects = [
     longDescription:
       'This project focuses on building a full-stack Customer Support Ticket System using the MERN stack (MongoDB, Express.js, React.js, Node.js). It includes features such as user authentication, ticket creation and management, and an intuitive user interface designed with Tailwind CSS and DaisyUI.',
     tech: [
+      'HTML',
+      'CSS',
       'JavaScript',
       'React.js',
       'Vite',
@@ -88,10 +108,12 @@ const projects = [
     longDescription:
       'MerxoMart is a modern e-commerce platform built with React and Tailwind CSS, featuring a responsive design and seamless user experience.',
     tech: [
+      'HTML',
+      'CSS',
+      'Tailwind CSS',
       'JavaScript',
       'React.js',
       'Vite',
-      'Tailwind CSS',
       'Firebase',
       'Node.js',
       'Express.js',
@@ -102,6 +124,18 @@ const projects = [
     link: 'https://merxomart.vercel.app/',
     github: 'https://github.com/alaminislam3203/merxomart-client.git',
     github2: 'https://github.com/alaminislam3203/merxomart-server.git',
+  },
+  {
+    id: 'green-earth',
+    title: 'Green Earth Web - Environmental Awareness Platform',
+    description:
+      'Green Earth Web is a responsive and interactive web application designed to promote environmental awareness and sustainability. Users can explore eco-friendly tips, participate in green initiatives, and learn about the importance of preserving our planet.',
+    longDescription:
+      'Green Earth Web is a modern environmental awareness platform built with React and Tailwind CSS, featuring a responsive design and seamless user experience.',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'Netlify'],
+    embedId: 'a1fnqf',
+    link: 'https://alaminislam3203.github.io/Green-Earth-Web/',
+    github: 'https://github.com/alaminislam3203/Green-Earth-Web.git',
   },
 ];
 
