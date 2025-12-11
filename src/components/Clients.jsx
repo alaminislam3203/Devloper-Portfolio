@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaLaptopCode, FaCheckCircle } from 'react-icons/fa';
 
-import logo1 from '../assets/logo1.jpg';
-import logo2 from '../assets/logo2.jpg';
-import logo3 from '../assets/logo3.jpg';
-import logo4 from '../assets/logo4.jpg';
-import logo5 from '../assets/logo5.png';
-import logo6 from '../assets/logo6.jpg';
-import logo7 from '../assets/logo7.jpg';
-import logo8 from '../assets/logo8.jpg';
-import logo9 from '../assets/logo9.jpg';
-import logo10 from '../assets/logo10.jpg';
-import logo11 from '../assets/logo11.jpg';
-import logo12 from '../assets/logo12.jpg';
-import logo13 from '../assets/logo13.jpg';
-import logo14 from '../assets/logo14.jpg';
+import logo1 from '../assets/company/logo1.jpg';
+import logo2 from '../assets/company/logo2.jpg';
+import logo3 from '../assets/company/logo3.jpg';
+import logo4 from '../assets/company/logo4.jpg';
+import logo5 from '../assets/company/logo5.png';
+import logo6 from '../assets/company/logo6.jpg';
+import logo7 from '../assets/company/logo7.jpg';
+import logo8 from '../assets/company/logo8.jpg';
+import logo9 from '../assets/company/logo9.jpg';
+import logo10 from '../assets/company/logo10.jpg';
+import logo11 from '../assets/company/logo11.jpg';
+import logo12 from '../assets/company/logo12.jpg';
+import logo13 from '../assets/company/logo13.jpg';
+import logo14 from '../assets/company/logo14.jpg';
 
 const clientLogos = [
   { src: logo1, alt: 'Company Logo 1' },

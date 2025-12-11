@@ -13,8 +13,9 @@ function App() {
   return (
     <div className="font-display min-h-screen antialiased overflow-x-hidden">
       {/* Main Content */}
-      <div className="relative z-10 w-full min-h-screen container mx-auto px-4 sm:px-6 lg:px-8">
-        <Header />
+
+      <Header />
+      <div className="relative z-10 w-full min-h-screen container mx-auto sm:px-6 lg:px-8">
         <Hero />
       </div>
 

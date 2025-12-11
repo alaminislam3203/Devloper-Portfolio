@@ -14,7 +14,7 @@ import { FiMail } from 'react-icons/fi';
 const Footer = () => {
   const quickLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Blogs', href: '/blogs' },
+    { name: 'Blogs', href: '#contact' },
     { name: 'Clients', href: '#clients' },
   ];
 
@@ -23,49 +23,49 @@ const Footer = () => {
       icon: FaGithub,
       href: 'https://github.com/alaminislam3203',
       label: 'GitHub',
-      color: 'hover:text-[#171515] dark:hover:text-gray-300',
+      color: 'text-black dark:text-white',
     },
     {
       icon: FaLinkedinIn,
       href: 'https://in.linkedin.com/in/alaminislam3203',
       label: 'LinkedIn',
-      color: 'hover:text-[#0A66C2] dark:hover:text-[#0A66C2]',
+      color: 'text-[#0A66C2] dark:hover:text-[#0A66C2]',
     },
     {
       icon: FaFacebook,
       href: 'https://www.facebook.com/alamin320',
       label: 'Facebook',
-      color: 'hover:text-[#0A66C2] dark:hover:text-[#0A66C2]',
+      color: 'text-[#0A66C2] dark:hover:text-[#0A66C2]',
     },
     {
       icon: FaTwitter,
       href: 'https://x.com/alamin_codes',
       label: 'Twitter',
-      color: 'hover:text-[#0A66C2] dark:hover:text-[#0A66C2]',
+      color: 'text-[#0A66C2] dark:hover:text-[#0A66C2]',
     },
     {
       icon: FaInstagram,
       href: 'https://www.instagram.com/alamin_codes/',
       label: 'Instagram',
-      color: 'hover:text-[#E1306C] dark:hover:text-[#E1306C]',
+      color: 'text-[#E1306C] dark:hover:text-[#E1306C]',
     },
     {
       icon: FaTiktok,
       href: 'https://www.tiktok.com/@alamin_chowdhury_102',
       label: 'TikTok',
-      color: 'hover:text-[#E1306C] dark:hover:text-[#E1306C]',
+      color: 'text-[#E1306C] dark:hover:text-[#E1306C]',
     },
     {
       icon: FiMail,
       href: 'mailto:alaminislam3203@gmail.com',
       label: 'Email',
-      color: 'hover:text-[#BB001B] dark:hover:text-[#BB001B]',
+      color: 'text-[#BB001B] dark:hover:text-[#BB001B]',
     },
     {
       icon: FaWhatsapp,
       href: 'https://wa.me/+8801313334279',
       label: 'WhatsApp',
-      color: 'hover:text-[#25D366] dark:hover:text-[#25D366]',
+      color: 'text-[#25D366] dark:hover:text-[#25D366]',
     },
   ];
 
@@ -73,19 +73,19 @@ const Footer = () => {
     <footer className="bg-white dark:bg-[#0B1120] border-t border-gray-100 dark:border-gray-800 py-16 px-4">
       <div className="container mx-auto max-w-7xl">
         {/* Main Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-200 dark:border-gray-700 pb-10 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-200 dark:border-gray-700 pb-10 mb-8 text-center md:text-left">
           {/* Logo & Info */}
           <a href="/" className="flex flex-col md:col-span-1 gap-3">
             <img
               src="https://i.ibb.co.com/tPLBqHkN/alamin-profile.jpg"
               alt="AL-AMIN ISLAM Logo"
-              className="h-10 w-10 rounded-full object-cover"
+              className="h-10 w-10 rounded-full object-cover shadow-sm mx-auto md:mx-0"
             />
             <div>
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-                AL-AMIN
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 ">
+                MD: AL-AMIN ISLAM
               </span>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 max-w-xs">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 md:max-w-xs  text-center md:text-left">
                 Dedicated Full Stack Web Developer specializing in clean, fast,
                 and user-centric digital solutions.
               </p>

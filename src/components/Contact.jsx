@@ -10,6 +10,17 @@ import {
 } from 'react-icons/fa';
 import { PhoneCall } from 'lucide-react';
 
+// --- Environment Variables Access ---
+// Note: We check for both VITE and REACT_APP prefixes to maximize compatibility.
+const getEnv = key =>
+  import.meta.env[`VITE_${key}`] || process.env[`REACT_APP_${key}`];
+
+const SERVICE_ID = getEnv('SERVICE_ID');
+const PUBLIC_KEY = getEnv('PUBLIC_KEY');
+const OWNER_TEMPLATE_ID = getEnv('OWNER_TEMPLATE_ID');
+const AUTO_REPLY_TEMPLATE_ID = getEnv('AUTO_REPLY_TEMPLATE_ID');
+// ------------------------------------
+
 const Contact = () => {
   const form = useRef();
   const [formData, setFormData] = useState({
@@ -22,29 +33,63 @@ const Contact = () => {
   const handleChange = e =>
     setFormData({ ...formData, [e.target.id]: e.target.value });
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setStatus('sending');
 
-    const SERVICE_ID = 'service_g9rtati';
-    const TEMPLATE_ID = 'template_4jlzrrf';
-    const PUBLIC_KEY = 'mSW-bsIk9JXtWWXOy';
+    // EmailJS credentials validation check
+    if (
+      !SERVICE_ID ||
+      !PUBLIC_KEY ||
+      !OWNER_TEMPLATE_ID ||
+      !AUTO_REPLY_TEMPLATE_ID
+    ) {
+      console.error(
+        'EmailJS credentials are missing or invalid. Check your .env file and ensure the environment is correctly loading variables.'
+      );
+      setStatus('error');
+      setTimeout(() => setStatus(''), 7000);
+      return;
+    }
+
+    // IMPORTANT: Verify AUTO_REPLY_TEMPLATE_ID is NOT the same as OWNER_TEMPLATE_ID
+    if (OWNER_TEMPLATE_ID === AUTO_REPLY_TEMPLATE_ID) {
+      console.error(
+        'Owner and Auto-Reply templates must be different for this logic to work properly.'
+      );
+      // We allow the process to continue, but logging a warning
+    }
 
     const templateParams = { ...formData };
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY).then(
-      result => {
-        console.log('SUCCESS!', result.text);
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        setTimeout(() => setStatus(''), 5000);
-      },
-      error => {
-        console.error('EmailJS Error:', error);
-        setStatus('error');
-        setTimeout(() => setStatus(''), 7000);
-      }
-    );
+    try {
+      // 1. Send notification to the owner
+      const ownerResult = await emailjs.send(
+        SERVICE_ID,
+        OWNER_TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
+      console.log('SUCCESS! Notification sent to owner:', ownerResult.text);
+
+      // 2. Send auto-reply to the user
+      const replyResult = await emailjs.send(
+        SERVICE_ID,
+        AUTO_REPLY_TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
+      console.log('SUCCESS! Auto-reply sent to user:', replyResult.text);
+
+      // উভয় ইমেইল সফলভাবে গেলে
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus(''), 5000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus(''), 7000);
+    }
   };
 
   const handleEmailClick = () =>
@@ -249,7 +294,7 @@ const Contact = () => {
             )}
             {status === 'error' && (
               <p className="text-red-500 text-center font-semibold flex items-center justify-center gap-2 mt-4">
-                <FaTimesCircle /> Failed to send message. Please try again.
+                <FaTimesCircle /> Failed to send message.
               </p>
             )}
           </motion.form>
